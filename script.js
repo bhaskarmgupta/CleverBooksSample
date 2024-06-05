@@ -95,3 +95,33 @@ reviewContainer.addEventListener('mousemove', (e) => {
   const walk = (x - startX) * 2;
   reviewContainer.scrollLeft = scrollLeft - walk;
 });
+// Smooth Scrolling for Navbar Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const targetSection = document.querySelector(this.getAttribute('href'));
+    targetSection.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Toggle Navbar Menu for Mobile
+const navbarMenu = document.querySelector('.nav-links');
+const navbarToggle = document.querySelector('.navbar-toggle');
+
+navbarToggle.addEventListener('click', () => {
+  navbarMenu.classList.toggle('active');
+});
+window.onscroll = function() {stickyNavbar()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function stickyNavbar() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky");
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}

@@ -41,8 +41,107 @@
       transform: translateY(0);
     }
   }
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #16213E; /* Dark blue background */
+  color: #FFFFFF; /* White text color */
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
 
- 
+.navbar.sticky {
+  top: -100px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 10px;
+}
+
+.navbar a {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.navbar a:hover {
+  background-color: #0E5499; /* Darker blue on hover */
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.nav-links li {
+  margin-left: 1rem;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Mobile Navigation */
+.navbar-toggle {
+  display: none; /* Hide by default */
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide on small screens */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
+    position: absolute;
+    top: 70px; /* Adjust based on navbar height */
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    padding: 1rem 0;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .nav-links li {
+    margin: 0;
+  }
+
+  .navbar-toggle {
+    display: block; /* Show toggle button on small screens */
+  }
+}
   /* Hero Section */
 
 .hero {
@@ -211,6 +310,12 @@
     font-weight: bold;
     color: var(--primary-color);
   }
+  .metric-card:hover,
+.review-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 24px rgba(0, 0, 0, 0.2);
+}
+  
   /* Problem Target Section */
   .problem-target {
     padding: 6rem 2rem;
